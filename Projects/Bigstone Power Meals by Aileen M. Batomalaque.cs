@@ -9,8 +9,6 @@ class BigstonePowerMeals
 
     {
 
-        // Module 1 - Getting started
-
         Console.WriteLine("Welcome to Bigstone Power Meals!"); // Basic Concepts (Output)
 
         
@@ -19,8 +17,6 @@ class BigstonePowerMeals
 
         double price; // Data Types
 
-
-        // Module 2 - Operators and Strings
 
         Console.WriteLine("\nPlease enter the category of meal you want to order: "); 
 
@@ -64,8 +60,6 @@ class BigstonePowerMeals
         }
 
 
-         // Module 3 - Decision Making (if Statement, else if Statement, else Statement)
-
          if(price < 7) 
 
          {
@@ -90,8 +84,6 @@ class BigstonePowerMeals
 
          }
 
-
-          // Module 4 - Loops (for Loop)
 
           for(int i=0; i<3; i++)  
 
@@ -132,8 +124,6 @@ class BigstonePowerMeals
           }
 
 
-          // Module 5 - Methods (Methods, Parameters and Arguments, Returning from Methods)
-
           double total = CalculateTotal(price); 
 
           Console.WriteLine($"\nYour total is ${total}.");
@@ -142,8 +132,6 @@ class BigstonePowerMeals
 
     }
 
-
-    // A method that calculates the total price with tax
 
     static double CalculateTotal(double price) 
 
