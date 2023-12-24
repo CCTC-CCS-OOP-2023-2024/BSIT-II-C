@@ -1,0 +1,201 @@
+using System;
+
+namespace ZedBarbecue
+{
+    class Program
+    {
+        // Module 1 - Getting started
+        // Program Structure
+        static void Main(string[] args)
+        {
+            // Basic Concepts (Output)
+            Console.WriteLine("Welcome to ZedBarbecue!");
+            Console.WriteLine("List of Barbecues:");
+
+            // Variables
+            string chickenSteak = "Chicken Steak";
+            string americanBeefSteak = "American Beef Steak";
+            string twinBeefSteak = "Twin Beef Steak";
+            string specialSteak = "Special Steak";
+            string lambChops = "Lamb Chops";
+            string beefBurger = "Beef Burger";
+
+            // Data Types
+            int chickenSteakPrice = 45;
+            int americanBeefSteakPrice = 30;
+            int twinBeefSteakPrice = 55;
+            int specialSteakPrice = 50;
+            int lambChopsPrice = 40;
+            int beefBurgerPrice = 35;
+
+            // Doing Math
+            int totalBarbecues = 6;
+            int averagePrice = (chickenSteakPrice + americanBeefSteakPrice + twinBeefSteakPrice + specialSteakPrice + lambChopsPrice + beefBurgerPrice) / totalBarbecues;
+
+            // Module 2 - Operators and Strings
+            // Arithmetic Operators
+            int discount = 10; // 10% off
+            int discountedPrice = averagePrice - (averagePrice * discount / 100);
+
+            // Assignment Operators
+            averagePrice -= discount; // same as averagePrice = averagePrice - discount;
+
+            // User Input
+            Console.WriteLine("Enter your name:");
+            string name = Console.ReadLine();
+
+            // More on Strings (\n \t @)
+            Console.WriteLine("\nHello, " + name + "!");
+            Console.WriteLine("\tHere are the prices of each barbecue:\n");
+            Console.WriteLine(chickenSteak + "\t- P" + chickenSteakPrice);
+            Console.WriteLine(americanBeefSteak + "\t- P" + americanBeefSteakPrice);
+            Console.WriteLine(twinBeefSteak + "\t- P" + twinBeefSteakPrice);
+            Console.WriteLine(specialSteak + "\t- P" + specialSteakPrice);
+            Console.WriteLine(lambChops + "\t- P" + lambChopsPrice);
+            Console.WriteLine(beefBurger + "\t- P" + beefBurgerPrice);
+
+            // Concatenation and Interpolation
+            Console.WriteLine("\nThe average price of a barbecue is P" + averagePrice + ".");
+            Console.WriteLine($"You can get a {discount}% discount if you buy more than one barbecue.");
+            Console.WriteLine($"The discounted price is P{discountedPrice}.");
+
+            // Module 3 - Decision Making
+            // Comparison Operators
+            bool isAffordable = averagePrice <= 50;
+
+            // if Statement
+            if (isAffordable)
+            {
+                Console.WriteLine("The barbecues are affordable.");
+            }
+
+            // else if Statement
+            else if (averagePrice > 50 && averagePrice <= 100)
+            {
+                Console.WriteLine("The barbecues are moderately priced.");
+            }
+
+            // else Statement
+            else
+            {
+                Console.WriteLine("The barbecues are expensive.");
+            }
+
+            // Logical Operators
+            bool isSpecial = name == "Zed" || name == "Zee";
+
+            // switch Statement
+            switch (isSpecial)
+            {
+                case true:
+                    Console.WriteLine("You are a special customer. You get a free barbecue of your choice.");
+                    break;
+                case false:
+                    Console.WriteLine("You are a regular customer. You get a free drink of your choice.");
+                    break;
+            }
+
+            // Ternary Operator
+            string feedback = isAffordable ? "We are happy to serve you." : "We are sorry for the inconvenience.";
+            Console.WriteLine(feedback);
+
+            // Module 4 - Loops
+            // for Loop
+            Console.WriteLine("\nHow many barbecues do you want to buy?");
+            int quantity = Convert.ToInt32(Console.ReadLine());
+            int totalPrice = 0;
+            for (int i = 1; i <= quantity; i++)
+            {
+                Console.WriteLine("Enter the name of the barbecue #" + i + ":");
+                string barbecue = Console.ReadLine();
+                totalPrice += GetPrice(barbecue); // Module 5 - Methods
+            }
+
+            // while Loop
+            while (totalPrice > 1000)
+            {
+                Console.WriteLine("Your total price is too high. Please remove some barbecues from your order.");
+                Console.WriteLine("Enter the name of the barbecue you want to remove:");
+                string barbecue = Console.ReadLine();
+                totalPrice -= GetPrice(barbecue);
+            }
+
+            // Module 5 - Methods
+            // Parameters and Arguments
+            PrintReceipt(name, quantity, totalPrice); // calling a method with arguments
+
+            // Returning from Methods
+            Console.WriteLine("Thank you for choosing ZedBarbecue!");
+            Console.WriteLine("Please rate our service from 1 to 5 stars:");
+            int rating = Convert.ToInt32(Console.ReadLine());
+            string comment = GetComment(rating); // calling a method that returns a value
+            Console.WriteLine(comment);
+        }
+
+        // Methods
+        static int GetPrice(string barbecue) // a method that takes a parameter and returns a value
+        {
+            int price = 0;
+            switch (barbecue)
+            {
+                case "Chicken Steak":
+                    price = 45;
+                    break;
+                case "American Beef Steak":
+                    price = 30;
+                    break;
+                case "Twin Beef Steak":
+                    price = 55;
+                    break;
+                case "Special Steak":
+                    price = 50;
+                    break;
+                case "Lamb Chops":
+                    price = 40;
+                    break;
+                case "Beef Burger":
+                    price = 35;
+                    break;
+                default:
+                    Console.WriteLine("Invalid barbecue name.");
+                    break;
+            }
+            return price;
+        }
+
+        static void PrintReceipt(string name, int quantity, int totalPrice) // a method that takes multiple parameters and does not return a value
+        {
+            Console.WriteLine("\nHere is your receipt:");
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Quantity: " + quantity);
+            Console.WriteLine("Total Price: P" + totalPrice);
+        }
+
+        static string GetComment(int rating) // a method that takes a parameter and returns a value
+        {
+            string comment = "";
+            switch (rating)
+            {
+                case 1:
+                    comment = "We are sorry to hear that you had a bad experience. Please let us know how we can improve.";
+                    break;
+                case 2:
+                    comment = "We appreciate your feedback. We hope to serve you better next time.";
+                    break;
+                case 3:
+                    comment = "Thank you for your rating. We are glad you enjoyed our service.";
+                    break;
+                case 4:
+                    comment = "Wow, thank you for your kind words. We are happy to have you as a loyal customer.";
+                    break;
+                case 5:
+                    comment = "You are awesome! Thank you for your amazing review. You made our day!";
+                    break;
+                default:
+                    comment = "Invalid rating. Please enter a number from 1 to 5.";
+                    break;
+            }
+            return comment;
+        }
+    }
+}
