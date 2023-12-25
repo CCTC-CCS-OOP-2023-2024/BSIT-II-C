@@ -1,0 +1,135 @@
+using System;
+
+namespace ClothingDenzo
+{
+    class Program
+    {
+        // Module 1 - Getting started
+        static void Main(string[] args)
+        {
+            // Program Structure
+            Console.WriteLine("Welcome to Clothing Denzo!");
+            Console.WriteLine("Happy to have you here. Enjoy choosing items in Clothing Denzo.");
+
+            // Variables
+            string customerName;
+            int choice;
+            int quantity;
+            double totalPrice = 0;
+
+            // User Input
+            Console.Write("Please enter your name: ");
+            customerName = Console.ReadLine();
+
+            // More on Strings (\n \t @)
+            Console.WriteLine($"\nHello, {customerName}! Here are the available clothing items:\n");
+            Console.WriteLine("\t1. Casual T-Shirt 120\n\t2. Jeans 230\n\t3. Dress Shirt 299\n\t4. Sneakers 340\n\t5. Hoodie 250");
+
+            // Decision Making
+            Console.Write("\nHow many items would you like to purchase? ");
+            quantity = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < quantity; i++)
+            {
+                do
+                {
+                    // Decision Making (Comparison Operators, if Statement, else Statement)
+                    Console.Write($"\nPlease enter your choice for item {i + 1} (1-5): ");
+                    choice = int.Parse(Console.ReadLine());
+                    if (choice < 1 || choice > 5)
+                    {
+                        Console.WriteLine("Invalid choice. Please try again.");
+                    }
+                } while (choice < 1 || choice > 5);
+
+                // Module 2 - Operators and Strings (Arithmetic Operators, Assignment Operators)
+                double price = GetItemPrice(choice);
+                totalPrice += price; // Doing Math
+            }
+
+            // Loops (for Loop, break and continue)
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("\nDo you want gift wrapping for your items? \nAdd $5 (y/n): ");
+                char answer = char.Parse(Console.ReadLine());
+                if (answer == 'y' || answer == 'Y')
+                {
+                    totalPrice += 5; // Additional cost for gift wrapping
+                    break;
+                }
+                else if (answer == 'n' || answer == 'N')
+                {
+                    totalPrice *= 1;
+
+
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid answer. Please try again.");
+                    continue;
+                }
+            }
+
+            // Module 5 - Methods (Methods, Parameters and Arguments, Returning from Methods)
+            DisplayReceipt(customerName, quantity, totalPrice);
+            Console.WriteLine("Thank you for shopping at Clothing Denzo!");
+        }
+
+        // Module 2 - Operators and Strings (Concatenation and Interpolation)
+        static void DisplayReceipt(string customerName, int quantity, double totalAmount)
+        {
+            Console.WriteLine($"\nReceipt for {customerName}:\n");
+            Console.WriteLine($"{"Item",-80}{"Size",-10}{"Color",-10}{"Quantity",-10}{"Price",-10}");
+            Console.WriteLine(new string('+', 120));
+
+            for (int i = 1; i <= quantity; i++)
+            {
+                string size = GetItemSize();
+                string color = GetItemColor();
+                double itemPrice = GetItemPrice(i);
+
+                // Module 2 - Operators and Strings (Concatenation and Interpolation)
+                Console.WriteLine($"Item {i,-80}{size,-10}{color,-10}{"1",-10}{itemPrice,-10:C}");
+            }
+
+            Console.WriteLine(new string('+', 120));
+            // Module 2 - Operators and Strings (Concatenation and Interpolation)
+            Console.WriteLine($"{"Total:",-110}{totalAmount:C}");
+        }
+
+        // Module 5 - Methods (Parameters and Arguments)
+        static string GetItemSize()
+        {
+            Console.Write("Enter the size (S, M, L, XL, XXL): ");
+            return Console.ReadLine().ToUpper();
+        }
+
+        // Module 5 - Methods (Parameters and Arguments)
+        static string GetItemColor()
+        {
+            Console.Write("Enter your preferred color: ");
+            return Console.ReadLine();
+        }
+
+        // Module 5 - Methods (Returning from Methods)
+        static double GetItemPrice(int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    return 120;
+                case 2:
+                    return 230;
+                case 3:
+                    return 299;
+                case 4:
+                    return 340;
+                case 5:
+                    return 250;
+                default:
+                    return 0;
+            }
+        }
+    }
+}
