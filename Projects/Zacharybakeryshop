@@ -1,0 +1,640 @@
+Program structure
+using System;
+
+namespace Zacharybakeryshop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Your code goes here
+            
+            Console.WriteLine("Hello, world!");
+            
+            // More code...
+            
+            Console.ReadLine();
+        }
+    }
+}
+Basic Concepts (Output)
+using System;
+
+namespace BasicConcepts
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Outputting text
+            Console.WriteLine("Hello, world!");
+
+            // Outputting variables
+            string name = "Zachary Jude";
+            int age = 20;
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Age: " + age);
+
+            // Formatted output using placeholders
+            Console.WriteLine("My name is {0} and I am {1} years old", name, age);
+
+            // Outputting using string interpolation (C# 6 and above)
+            Console.WriteLine($"My name is {Zachary Jude} and I am {20} years old");
+
+            // Outputting numbers
+            double num1 = 3.14159;
+            int num2 = 42;
+            Console.WriteLine("Pi: " + num1);
+            Console.WriteLine("Answer to the Ultimate Question of Life, the Universe, and Everything: " + num2);
+
+            // Formatting numbers
+            Console.WriteLine("Pi: {0:N2}", num1);
+            Console.WriteLine("Answer to the Ultimate Question of Life, the Universe, and Everything: {0:D4}", num2);
+
+            // Outputting boolean values
+            bool isTrue = true;
+            bool isFalse = false;
+            Console.WriteLine("Is it true? " + isTrue);
+            Console.WriteLine("Is it false? " + isFalse);
+        }
+    }
+}
+
+variables
+using System;
+
+namespace Variables
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declaring variables
+            int age;
+            string name;
+
+            // Assigning values to variables
+            age = 20;
+            name = "Zachary Jude";
+
+            // Outputting variables
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Age: " + age);
+
+            // Initializing variables
+            int height = 160;
+            bool isStudent = true;
+
+            // Modifying variables
+            age = age + 1;
+            height += 10;
+
+            // Outputting modified variables
+            Console.WriteLine("New age: " + age);
+            Console.WriteLine("New height: " + height);
+
+            // Constants
+            const double pi = 3.14159;
+            Console.WriteLine("Value of pi: " + pi);
+
+            // Multiple variable declaration and initialization
+            int num1 = 10, num2 = 20, num3 = 30;
+            Console.WriteLine("Sum: " + (num1 + num2 + num3));
+
+            // Variable scope
+            {
+                int x = 5;
+                Console.WriteLine("x: " + x);
+            }
+            // The following line would cause a compile-time error
+            // Console.WriteLine("x: " + x);
+        }
+    }
+}
+Data Types
+using System;
+
+namespace DataTypes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Numeric data types
+            int number = 10;
+            double decimalNumber = 3.14;
+            float floatNumber = 2.5f;
+            decimal bigDecimalNumber = 100.123m;
+
+            // Text data type
+            string text = "Hello, world!";
+
+            // Boolean data type
+            bool isTrue = true;
+
+            // Character data type
+            char character = 'A';
+
+            // Outputting data types
+            Console.WriteLine("Number: " + number);
+            Console.WriteLine("Decimal number: " + decimalNumber);
+            Console.WriteLine("Float number: " + floatNumber);
+            Console.WriteLine("Big decimal number: " + bigDecimalNumber);
+            Console.WriteLine("Text: " + text);
+            Console.WriteLine("Is true? " + isTrue);
+            Console.WriteLine("Character: " + character);
+            
+            // Type conversion
+            double convertedNumber = Convert.ToDouble(number);
+            int roundedNumber = (int)decimalNumber;
+
+            Console.WriteLine("Converted number: " + convertedNumber);
+            Console.WriteLine("Rounded number: " + roundedNumber);
+        }
+    }
+}
+Doing Math
+using System;
+
+namespace DoingMath
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int operand1 = 10;
+            int operand2 = 5;
+
+            int sum = operand1 + operand2;
+            int difference = operand1 - operand2;
+            int product = operand1 * operand2;
+            int quotient = operand1 / operand2;
+            int remainder = operand1 % operand2;
+
+            Console.WriteLine("Sum: " + sum);
+            Console.WriteLine("Difference: " + difference);
+            Console.WriteLine("Product: " + product);
+            Console.WriteLine("Quotient: " + quotient);
+            Console.WriteLine("Remainder: " + remainder);
+
+            double squareRoot = Math.Sqrt(operand1);
+            double power = Math.Pow(operand1, operand2);
+            double pi = Math.PI;
+
+            Console.WriteLine("Square root of operand1: " + squareRoot);
+            Console.WriteLine("operand1 raised to the power of operand2: " + power);
+            Console.WriteLine("Value of pi: " + pi);
+        }
+    }
+}
+ Getting started
+ Arithmetic Operators
+using System;
+
+namespace ArithmeticOperators
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int operand1 = 10;
+            int operand2 = 5;
+
+            // Addition
+            int sum = operand1 + operand2;
+            Console.WriteLine("Sum: " + sum);
+
+            // Subtraction
+            int difference = operand1 - operand2;
+            Console.WriteLine("Difference: " + difference);
+
+            // Multiplication
+            int product = operand1 * operand2;
+            Console.WriteLine("Product: " + product);
+
+            // Division
+            int quotient = operand1 / operand2;
+            Console.WriteLine("Quotient: " + quotient);
+
+            // Modulus (Remainder)
+            int remainder = operand1 % operand2;
+            Console.WriteLine("Remainder: " + remainder);
+        }
+    }
+}
+Assignment Operators
+using System;
+
+namespace AssignmentOperators
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int operand1 = 10;
+            int operand2 = 5;
+
+            // Simple Assignment
+            int result = operand1;
+            Console.WriteLine("Simple Assignment: " + result);
+
+            // Addition Assignment
+            result += operand2;
+            Console.WriteLine("Addition Assignment: " + result);
+
+            // Subtraction Assignment
+            result -= operand2;
+            Console.WriteLine("Subtraction Assignment: " + result);
+
+            // Multiplication Assignment
+            result *= operand2;
+            Console.WriteLine("Multiplication Assignment: " + result);
+
+            // Division Assignment
+            result /= operand2;
+            Console.WriteLine("Division Assignment: " + result);
+
+            // Modulus Assignment
+            result %= operand2;
+            Console.WriteLine("Modulus Assignment: " + result);
+        }
+    }
+}
+User Input
+using System;
+
+namespace UserInput
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please enter your name:");
+            string name = Console.ReadLine();
+            Console.WriteLine("Hello, " + name + "!");
+
+            Console.WriteLine("Please enter your age:");
+            int age = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("You are " + age + " years old.");
+
+            Console.WriteLine("Please enter a number:");
+            double number = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("The square of " + number + " is " + (number * number));
+        }
+    }
+}
+More on Strings (\n \t @)
+using System;
+
+namespace MoreOnString
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Using \n to print on a new line
+            Console.WriteLine("Hello, \nworld!");
+
+            // Using \t to insert a tab
+            Console.WriteLine("Name:\tZacharyJude");
+            Console.WriteLine("Age:\t20");
+
+            // Using @ to define verbatim string literals
+            string filePath = @"C:\Users\ZacharyJude\Documents\";
+            Console.WriteLine("File Path: " + filePath);
+
+            // Combining escape sequences
+            Console.WriteLine("\n\t\"Be yourself; everyone else is already taken.\"");
+        }
+    }
+}
+Concatenation and Interpolation
+using System;
+
+namespace ConcatenationAndInterpolation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = "ZacharyJude";
+            int age = 20;
+
+            // Concatenation using the + operator
+            string concatMessage = "My name is " + name + " and I am " + age + " years old.";
+            Console.WriteLine(concatMessage);
+
+            // Interpolation using the $ symbol
+            string interpolationMessage = $"My name is {name} and I am {age} years old.";
+            Console.WriteLine(interpolationMessage);
+        }
+    }
+}
+Comparison Operators
+using System;
+
+namespace ComparisonOperators
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 10, b = 5;
+
+            // Greater than operator
+            bool isAGreaterThanB = a > b;
+            Console.WriteLine($"Is a ({a}) greater than b ({b})? {isAGreaterThanB}");
+
+            // Less than operator
+            bool isALessThanB = a < b;
+            Console.WriteLine($"Is a ({a}) less than b ({b})? {isALessThanB}");
+
+            // Greater than or equal to operator
+            bool isAGreaterThanOrEqualToB = a >= b;
+            Console.WriteLine($"Is a ({a}) greater than or equal to b ({b})? {isAGreaterThanOrEqualToB}");
+
+            // Less than or equal to operator
+            bool isALessThanOrEqualToB = a <= b;
+            Console.WriteLine($"Is a ({a}) less than or equal to b ({b})? {isALessThanOrEqualToB}");
+
+            // Equal to operator
+            bool areAAndBEqual = a == b;
+            Console.WriteLine($"Are a ({a}) and b ({b}) equal? {areAAndBEqual}");
+
+            // Not equal to operator
+            bool areAAndBNotEqual = a != b;
+            Console.WriteLine($"Are a ({a}) and b ({b}) not equal? {areAAndBNotEqual}");
+        }
+    }
+}
+if Statement
+using System;
+
+namespace IfStatement
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num = 10;
+
+            if (num > 0)
+            {
+                Console.WriteLine("The number is positive.");
+            }
+        }
+    }
+}
+else if Statement
+using System;
+
+namespace ElseIfStatementExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num = 10;            
+            
+            if (num > 0)
+            {
+                Console.WriteLine("The number is positive.");
+            }
+            else if (num < 0)
+            {
+                Console.WriteLine("The number is negative.");
+            }
+            else
+            {
+                Console.WriteLine("The number is zero.");
+            }
+        }
+    }
+}
+else Statement
+using System;
+
+namespace ElseStatement
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool isRainy = true;
+
+            if (isRainy)
+            {
+                Console.WriteLine("Remember to take an umbrella!");
+            }
+            else
+            {
+                Console.WriteLine("Enjoy the sunny day!");
+            }
+        }
+    }
+}
+Logical Operators
+using System;
+
+namespace LogicalOperatorsExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int age = 25;
+            bool isStudent = true;
+
+            if (age >= 18 && isStudent)
+            {
+                Console.WriteLine("You are a student and old enough to vote!");
+            }
+            else if (age >= 18 || isStudent)
+            {
+                Console.WriteLine("You are either a student or old enough to vote!");
+            }
+            else
+            {
+                Console.WriteLine("You are not a student and too young to vote.");
+            }
+        }
+    }
+}
+switch Statement
+using System;
+
+namespace SwitchStatement
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a number between 1 and 5:");
+            int number = int.Parse(Console.ReadLine());
+
+            switch (number)
+            {
+                case 1:
+                    Console.WriteLine("You entered the number one.");
+                    break;
+                case 2:
+                    Console.WriteLine("You entered the number two.");
+                    break;
+                case 3:
+                    Console.WriteLine("You entered the number three.");
+                    break;
+                case 4:
+                    Console.WriteLine("You entered the number four.");
+                    break;
+                case 5:
+                    Console.WriteLine("You entered the number five.");
+                    break;
+                default:
+                    Console.WriteLine("Invalid input. Please enter a number between 1 and 5.");
+                    break;
+            }
+        }
+    }
+}
+for Loop
+using System;
+
+namespace ForLoopExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Counting from 1 to 10:");
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("Loop finished!");
+        }
+    }
+}
+while Loop
+using System;
+
+namespace WhileLoopExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Counting from 1 to 10 using a while loop:");
+
+            int i = 1;
+            while (i <= 10)
+            {
+                Console.WriteLine(i);
+                i++;
+            }
+
+            Console.WriteLine("Loop finished!");
+        }
+    }
+} 
+Methods
+using System;
+
+namespace MethodsExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = GetName();
+            int age = GetAge();
+            
+            GreetUser(name, age);
+        }
+
+        static string GetName()
+        {
+            Console.WriteLine("What is your name?");
+            string name = Console.ReadLine();
+            return name;
+        }
+
+        static int GetAge()
+        {
+            Console.WriteLine("How old are you?");
+            int age = Convert.ToInt32(Console.ReadLine());
+            return age;
+        }
+
+        static void GreetUser(string name, int age)
+        {
+            Console.WriteLine($"Hello, {name}! You are {age} years old.");
+        }
+    }
+}
+Returning from Methods
+using System;
+
+namespace ReturningMethods
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x = 5;
+            int y = 3;
+            int sum = AddNumbers(x, y);
+            Console.WriteLine($"The sum of {x} and {y} is {sum}.");
+
+            double radius = 2.5;
+            double area = CalculateCircleArea(radius);
+            Console.WriteLine($"The area of a circle with radius {radius} is {area}.");
+
+            int[] numbers = { 2, 4, 6, 8, 10 };
+            int maxNumber = FindMaxNumber(numbers);
+            Console.WriteLine($"The maximum number in the array is {maxNumber}.");
+
+            bool isPositive = CheckIfPositive(7);
+            Console.WriteLine($"The number 7 is positive: {isPositive}.");
+        }
+
+        static int AddNumbers(int a, int b)
+        {
+            int sum = a + b;
+            return sum;
+        }
+
+        static double CalculateCircleArea(double radius)
+        {
+            double area = Math.PI * Math.Pow(radius, 2);
+            return area;
+        }
+
+        static int FindMaxNumber(int[] array)
+        {
+            int maxNumber = array[0];
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > maxNumber)
+                {
+                    maxNumber = array[i];
+                }
+            }
+            return maxNumber;
+        }
+
+        static bool CheckIfPositive(int number)
+        {
+            if (number > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+
