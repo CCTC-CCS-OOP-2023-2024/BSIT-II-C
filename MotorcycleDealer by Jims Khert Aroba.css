@@ -1,0 +1,125 @@
+using System;
+
+class MotorcycleDealer
+{
+    static void Main()
+    {
+        
+        
+        Console.WriteLine("Welcome to the Motorcycle Dealer Management System!");
+
+        
+        Console.WriteLine("This program helps manage the inventory and sales of motorcycles.");
+
+        
+        int availableMotorcycles = 15;
+
+        
+        string motorcycleBrand = "Yamaha";
+
+        
+        int soldMotorcycles = 5;
+        availableMotorcycles -= soldMotorcycles;
+
+        
+        
+        int totalRevenue = 0;
+        int motorcyclePrice = 6000;
+        totalRevenue += soldMotorcycles * motorcyclePrice;
+
+        
+        string dealerLocation = "Downtown";
+
+        
+        Console.Write("Enter customer name: ");
+        string customerName = Console.ReadLine();
+
+        
+        string specialOffer = $"Special Discount!\n\t10% off on all accessories for {customerName} @ {dealerLocation}";
+
+        
+        string welcomeMessage = $"Hello, {customerName}! Welcome to our {motorcycleBrand} dealership.";
+
+        
+        
+        if (availableMotorcycles > 0)
+        {
+            
+            Console.WriteLine("We have motorcycles available for sale.");
+        }
+        else if (availableMotorcycles == 0)
+        {
+            
+            Console.WriteLine("All motorcycles are sold out.");
+        }
+        else
+        {
+            
+            Console.WriteLine("Invalid inventory count.");
+        }
+
+        
+        bool isCustomerNew = true;
+        bool isDiscountEligible = isCustomerNew && totalRevenue > 10000;
+
+        
+        switch (motorcycleBrand)
+        {
+            case "Honda":
+                Console.WriteLine("Explore our collection of Honda motorcycles.");
+                break;
+            case "Yamaha":
+                Console.WriteLine("Discover our range of Yamaha motorcycles.");
+                break;
+            default:
+                Console.WriteLine("Check out our diverse selection of motorcycles.");
+                break;
+        }
+
+        
+        string discountMessage = isDiscountEligible ? "Congratulations! You are eligible for a special discount." : "Thank you for your purchase.";
+
+        
+        
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine($"Iteration {i + 1}");
+        }
+
+        
+        int remainingMotorcycles = 8;
+        while (remainingMotorcycles > 0)
+        {
+            Console.WriteLine($"Motorcycle sold! Remaining: {remainingMotorcycles}");
+            remainingMotorcycles--;
+        }
+
+        
+        for (int i = 0; i < 6; i++)
+        {
+            if (i == 3)
+                break; // exit the loop at i=3
+            if (i % 2 == 0)
+                continue; // skip even numbers
+            Console.WriteLine($"Odd number: {i}");
+        }
+
+        
+        int result = AddNumbers(8, 4);
+        Console.WriteLine($"Result of addition: {result}");
+
+        string fullName = GetFullName("Jims khert", "Aroba");
+        Console.WriteLine($"Full Name: {fullName}");
+    }
+
+    
+    static int AddNumbers(int a, int b)
+    {
+        return a + b;
+    }
+
+    static string GetFullName(string firstName, string lastName)
+    {
+        return $"{firstName} {lastName}";
+    }
+}
