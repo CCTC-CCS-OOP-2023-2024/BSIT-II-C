@@ -1,0 +1,98 @@
+using System;
+
+namespace RPS
+{
+
+	class Program
+	{
+
+		static void Main(string[] args)
+		{
+			Random random = new Random();
+
+			int playerScore = 0;
+			int enemyScore = 0;
+
+			Console.WriteLine("----------------------------------------");
+			Console.WriteLine("-Welcome to Gutang Rock Paper Scissors!-");
+			Console.WriteLine("----------------------------------------");
+
+			while (playerScore != 3 && enemyScore != 3)
+			{
+				Console.WriteLine("Player score - " + playerScore + ". Enemy score - " + enemyScore);
+				Console.WriteLine("Please enter 'r' for rock, 'p' for paper and and any letter for scissors");
+				string playerChoice = Console.ReadLine();
+
+				int enemyChoice = random.Next(0, 3);
+
+				if (enemyChoice == 0)
+				{
+					Console.WriteLine("Enemy chooses ROCK");
+
+					switch (playerChoice)
+					{
+					case "r":
+					Console.WriteLine("It's a tie!");
+					break;
+					case "p":
+					Console.WriteLine("Player wins this round!");
+					playerScore++;
+					break;
+					default:
+					Console.WriteLine("Player wins this round!");
+					enemyScore++;
+					break;
+					}
+
+				}
+				else if (enemyChoice == 1)
+				{
+					Console.WriteLine("Enemy chooses PAPER");
+
+					switch (playerChoice)
+					{
+					case "r":
+					Console.WriteLine("Enemy wins this round!");
+					enemyScore++;
+					break;
+					case "p":
+					Console.WriteLine("It's a tie!");
+					break;
+					default:
+					Console.WriteLine("Player wins this round!");
+					playerScore++;
+					break;
+					}
+
+				}
+				else
+				{
+					Console.WriteLine("Enemy chooses SCISSORS");
+
+					switch (playerChoice)
+					{
+					case "r":
+					Console.WriteLine("Enemy wins this round!");
+					enemyScore++;
+					break;
+					case "p":
+					Console.WriteLine("It's a tie!");
+					break;
+					default:
+					Console.WriteLine("Player wins this round!");
+					playerScore++;
+					break;
+					}
+				}
+			}
+			if (playerScore == 3)
+			{
+				Console.WriteLine("You win!");
+			}
+			else
+			{
+				Console.WriteLine("You lose!");
+			}
+		}
+	}
+}
